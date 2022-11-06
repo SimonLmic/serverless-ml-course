@@ -9,5 +9,5 @@ seaborn
 dataframe-image
 streamlit_folium
 plotly
-pytorch
+torch
 networkx
