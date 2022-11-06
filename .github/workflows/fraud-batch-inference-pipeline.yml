@@ -25,6 +25,7 @@ jobs:
       - name: execute python workflows from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+        run: chmod +x ./src/LCB-PRJ/scripts/run-fraud-batch-inference.sh
         run: ./src/LCB-PRJ/scripts/run-fraud-batch-inference.sh
         shell: bash 
 
