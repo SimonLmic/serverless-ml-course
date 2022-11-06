@@ -26,6 +26,7 @@ jobs:
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: ./src/LCB-PRJ/scripts/run-fraud-batch-inference.sh
+        shell: bash 
 
       - name: publish github pages
         uses: stefanzweifel/git-auto-commit-action@v4
