@@ -12,8 +12,3 @@ dataframe-image
 streamlit_folium
 plotly
 networkx
-torch-scatter 
-torch-sparse 
-torch-cluster 
-torch-spline-conv
-torch-geometric
