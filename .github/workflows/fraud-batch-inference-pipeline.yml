@@ -15,14 +15,36 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8.1'
-          
-      - name: install python packages
+          python-version: '3.7'
+
+      - name: setup conda
+        uses: s-weigand/setup-conda@v1
+        with:
+          activate-conda: true
+          python-version: 3.7
+
+      - run: conda --version
+
+      - run: which python
+
+      - name: Run installation.
         run: |
+          TORCH_VERSION="1.6.0"
+          IDX="cpu"
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-#pip-sync --pip-args "--only-binary :all --no-binary torch-cluster,torch-scatter,torch-sparse,torch-spline-conv" requirements.txt
-#pip install -r requirements.txt
+          conda install -y scipy
+          pip install torch==${TORCH_VERSION}+${IDX} -f https://download.pytorch.org/whl/torch_stable.html
+          pip install torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+          pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.6.0+${IDX}.html
+          pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.6.0+${IDX}.html
+          pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.6.0+${IDX}.html
+          pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.6.0+${IDX}.html
+          pip install torch-geometric
+          pip install codecov
+          pip install sphinx sphinx_rtd_theme
+          pip install .[test]
+          python setup.py install
           
       - name: execute python workflows from bash script
         env: 

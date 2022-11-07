@@ -1,6 +1,4 @@
 faker
-torch
-torchvision
 parsedatetime
 hopsworks
 nbconvert
