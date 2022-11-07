@@ -11,3 +11,7 @@ streamlit_folium
 plotly
 torch
 networkx
+torch-scatter 
+torch-sparse 
+torch-cluster 
+torch-spline-conv
