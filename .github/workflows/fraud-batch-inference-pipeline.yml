@@ -42,9 +42,8 @@ jobs:
           pip install torch-geometric
           pip install codecov
           pip install sphinx sphinx_rtd_theme
-          pip install .[test]
           python setup.py install
-          
+    
       - name: execute python workflows from bash script
         env: 
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
