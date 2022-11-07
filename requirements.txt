@@ -1,4 +1,6 @@
 faker
+torch
+torchvision
 parsedatetime
 hopsworks
 nbconvert
@@ -9,9 +11,9 @@ seaborn
 dataframe-image
 streamlit_folium
 plotly
-torch
 networkx
 torch-scatter 
 torch-sparse 
 torch-cluster 
 torch-spline-conv
+torch-geometric
