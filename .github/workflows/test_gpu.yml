@@ -1,5 +1,4 @@
 name: test_gpu
-
 on: [push]
 #  workflow_dispatch:
 #  schedule:
@@ -8,14 +7,13 @@ jobs:
   run:
     runs-on: [self-hosted,gpu]
     steps:
+      - uses: actions/checkout@v2
       - name: cml_run
-        uses: actions/checkout@v2
         env :
           repo_token: ${{secrets.GITHUB_TOKEN}}
           run: |
             CODEBLOCK="\`\`\`"
-            echo $CODEBLOCK > report .md
+            echo $CODEBLOCK > report.md
             nvidia-smi >> report.md
-            echo $CODEBLOCK >> report.mdr
-
+            echo $CODEBLOCK >> report.md
             cml-send-comment report.md
